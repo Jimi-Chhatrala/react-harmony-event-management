@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.events{
+    background: #000;
+}
+
+#hero{
+    background-image: url('../../images/0.breadcrumb-bg.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* width: 100vw; */
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 5%;
+}
+
+.events_container{
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.events_container .events_image{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.events_container .events_image_1{
+    background-image: url('../../images/events/event-1.jpg');
+}
+
+.events_container .events_image_2{
+    background-image: url('../../images/events/event-2.jpg');
+}
+
+.events_container .events_image_3{
+    background-image: url('../../images/events/event-3.jpg');
+}
+
+.events_container .events_image_4{
+    background-image: url('../../images/events/event-4.jpg');
+}
+
+.events_container .events_image_5{
+    background-image: url('../../images/events/event-5.jpg');
+}
+
+.events_container .events_image_6{
+    background-image: url('../../images/events/event-6.jpg');
+}
+
+.events_container .events_image .events_text{
+    background: whitesmoke;
+    color: skyblue;
+    margin-top: 269px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px){
+    .events_container{
+        margin: 0 50px;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 390px){
+    #hero{   
+        height: 45vh;
+    }
+
+    .events_container {
+        margin: 0px 25px;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    #hero{   
+        height: 40vh;
+    }
+
+    .events_container {
+        margin: 0px 25px;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .events_container {
+        padding-top: 25px;
+        grid-template-columns: auto;
+        margin: 0px 25px;
+    }
+}

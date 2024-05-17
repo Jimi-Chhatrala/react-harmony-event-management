@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo img{
+    width: 120px;
+}
+
+header{
+    display: flex;
+    background: rgb(0, 0, 44);
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+}
+
+header nav ul{
+    margin-right: 300px;
+    margin-left: -250px;
+}
+
+header nav ul li{
+    display: inline-block;
+    margin: 20px;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0000ff;
+    width: 120px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    /* float: left; */
+    background-image: url("./images/iamge.jpg");
+    border-radius: 5px;
+}
+
+#hero{
+    background-image: url('./images/0.breadcrumb-bg.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* width: 100vw; */
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 5%;
+}
+
+#hero .contact-us{
+    text-align: center;
+}
+
+.contact-us .contact-1{
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.contact-us .contact-2{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contact-us .contact-2 span{
+    color: orange;
+}
+
+.contact-us .contact-3-1{
+    margin-right: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact-us .contact-3-2{
+    border-left: 2px solid;
+    padding-left: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact-us-form{
+    /* width: 100vw; */
+    height: 100vh;
+    /* background: yellow; */
+    display: flex;
+}
+
+.contact-us-form .contact-image img{
+    width: 50vw;
+    height: 100vh;
+    /* background-image: url('./images/contact-form-image.png'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+}
+
+.contact-us-form .contact-form{
+    width: 50vw;
+    height: 100vh;
+    /* background: green; */
+}
+
+.contact-us-form .contact-us-label{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact-us-form .contact-us-label .contact-us-icon{
+    color: #fff;
+    background: #800080;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding-top: 2px;
+}
+
+.contact-us-form .contact-us-label .contact-us-icon .lock-icon{
+    font-size: 18px;
+}
+
+.contact-us-form .contact-us-label .contact-us-text{
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-us-form form input{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.contact-us-form form input[type="submit"]{
+    background: #0d6efd;
+    border: navajowhite;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+}

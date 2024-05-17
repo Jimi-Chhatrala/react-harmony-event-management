@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#hero{
+    background-image: url('../../images/0.breadcrumb-bg.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* width: 100vw; */
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 5%;
+}
+
+#hero .contact_us{
+    text-align: center;
+}
+
+.contact_us .contact_1{
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.contact_us .contact_2{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contact_us .contact_2 span{
+    color: orange;
+}
+
+.contact_us .contact_3_1{
+    margin-right: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact_us .contact_3_2{
+    border-left: 2px solid;
+    padding-left: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact_us_form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* width: 100vw; */
+    /* height: 100vh; */
+    /* background: yellow; */
+    /* display: flex; */
+}
+
+/* .contact_us_form .contact_image img{ */
+    /* width: 50vw; */
+    /* height: 100vh; */
+    /* background-image: url('./images/contact-form-image.png'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+/* } */
+
+/* .contact_us_form .contact_form{ */
+    /* width: 50vw; */
+    /* height: 100vh; */
+    /* background: green; */
+/* } */
+
+.contact_us_form .contact_us_label{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact_us_form .contact_us_label .contact_us_icon{
+    color: #fff;
+    background: #800080;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding-top: 2px;
+}
+
+.contact_us_form .contact_us_label .contact_us_icon .lock_icon{
+    font-size: 18px;
+}
+
+.contact_us_form .contact_us_label .contact_us_text{
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact_us_form form input{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.contact_us_form form input[type="submit"]{
+    background: #0d6efd;
+    border: navajowhite;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location_label{
+    padding: 20px 0;
+    /* display: block; */
+    /* background: yellow; */
+}
+
+.location_label p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location_label p span{
+    margin: 0 10px;
+    color: gray;
+}
+
+@media only screen and (max-width: 1024px){
+    .contact_us_form{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    
+    .contact_us_form{
+        grid-template-columns: auto;
+    }
+}
+
+@media only screen and (max-width: 390px){
+    #hero{
+        height: 20vh;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    #hero{
+        height: 20vh;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .contact_image{
+        display: none;
+    }
+}

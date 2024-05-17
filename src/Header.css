@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo img{
+    width: 120px;
+}
+
+header{
+    display: flex;
+    background: rgb(0, 0, 44);
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+}
+
+header nav ul{
+    margin-right: 300px;
+    margin-left: -250px;
+}
+
+header nav ul li{
+    display: inline-block;
+    margin: 20px;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0000ff;
+    width: 120px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    /* float: left; */
+    background-image: url("./images/iamge.jpg");
+    border-radius: 5px;
+}
+
+#hero{
+    /* width: 100vw; */
+    height: 100vh;
+    background-image: url('./images/abstract-1846226.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-content{
+    /* width: 50%; */
+    margin-left: 80px;
+    padding-top: 50px;
+}
+
+.header-content .title{
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.header-content .description{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.header-content .tagline{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.header-content div .email-box{
+    width: 280px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: none;
+    padding-left: 20px;
+    font-size: 15px;
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+}
+
+.header-content div .email-button{
+    background-color: orangered;
+    border: none;
+    width: 100px;
+    height: 40px;
+    padding: 0 5px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.visitors{
+    display: flex;
+    align-items: center;
+}
+
+.header-content .visitors .visitors-image{
+    display: inline-block;
+}
+
+.header-content .visitors .visitors-description{
+    display: inline-block;
+    color: #fff;
+    margin-left: 10px;
+}
+

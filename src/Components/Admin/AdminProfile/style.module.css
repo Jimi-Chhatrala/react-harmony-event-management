@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin_profile_container{
+    margin-left: 130px;
+    margin-top: -9.5rem;
+    border: 1px solid gray;
+    /* padding-top: 20px; */
+    background-color: whitesmoke;
+}
+
+.admin_profile_image_container{
+    background: #fff;
+    height: 25vh;
+    margin: 25px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin_profile_image_container img{
+    background: gray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.action_buttons{
+    margin: 20px;
+}
+
+.action_buttons button{
+    color: #fff;
+    background: #000;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.admin_profile_details_container{
+    background: #fff;
+    /* height: 25vh; */
+    margin: 25px;
+    border-radius: 5px;   
+    padding: 10px;
+}
+
+.admin_profile_details_container form{
+    margin: 0;
+}
+
+.admin_profile_details_container form div{
+    display: inline-block;
+    margin: 5px;
+}
+
+.admin_profile_details_container form div > *{
+    margin-top: 11px;
+    margin-bottom: 11px;
+    display: block;
+}
+
+.admin_profile_details_container form input[type="text"],
+.admin_profile_details_container form input[type="email"] {
+    width: 400px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+
+.admin_profile_details_container form input[type="button"]{
+    display: block;
+    background: blue;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.admin_profile_details_container form input[type="password"]{
+    width: 350px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 1024px){
+    .admin_profile_container{
+        margin-left: 0;
+        margin-top: 0;
+    }
+}
+
+
+@media only screen and (max-width: 390px){
+    .admin_profile_details_container form input[type="text"],
+    .admin_profile_details_container form input[type="email"] {
+        width: 330px;
+    }
+
+    .admin_profile_details_container form input[type="password"] {
+        width: 330px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .admin_profile_details_container form input[type="text"],
+    .admin_profile_details_container form input[type="email"] {
+        width: 300px;
+    }
+
+    .admin_profile_details_container form input[type="password"] {
+        width: 300px;
+    }
+}

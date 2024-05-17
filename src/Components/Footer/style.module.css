@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer{
+    background: rgb(3, 3, 59);
+}
+
+.footer_text_1{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 50px;
+    text-align: center;
+    color: rgb(142, 18, 142);
+}
+
+.footer_button_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_button{
+    margin-top: 40px;
+    padding: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.links{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 50px 100px;
+}
+
+.links div{
+    /* background: yellow; */
+    height: 180px;
+    margin: 5px;
+}
+
+.links .react_logo{
+    width: 100px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+}
+
+.links div p{
+    color: #fff;
+}
+
+.links div ul{
+    list-style: none;
+}
+
+.links div ul li{
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.links div .text{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer .copyright_text{
+    text-align: center;
+    color: #fff;
+    padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 390px){
+    .footer_text_1 {
+        font-size: 40px;
+    }
+
+    .links {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 50px 50px;
+        gap: 5px;
+    }
+
+    .links div{
+        margin: 10px;
+    }
+
+    .links .react_logo {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .links{
+        grid-template-columns: auto !important;
+        margin: 40px;
+        gap: 5px;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .links{
+        grid-template-columns: auto !important;
+        margin: 40px;
+        gap: 5px;
+    }
+}
+

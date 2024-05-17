@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location_label{
+    padding: 20px 0;
+    /* display: block; */
+    /* background: yellow; */
+}
+
+.location_label p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location_label p span{
+    margin: 0 10px;
+    color: gray;
+}

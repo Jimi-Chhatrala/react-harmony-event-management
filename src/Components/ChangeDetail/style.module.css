@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contact_us_form{
+    /* width: 100vw; */
+    /* height: 100vh; */
+    /* background: yellow; */
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+/* .contact_us_form .contact_image img{ */
+    /* width: 50vw; */
+    /* height: 100%; */
+    /* background-image: url('./images/contact-form-image.png'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+/* } */
+
+.contact_us_form .contact_form{
+    /* width: 50vw; */
+    /* height: 100vh; */
+    /* background: green; */
+    padding-bottom: 20px;
+}
+
+.contact_us_form .contact_us_label{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact_us_form .contact_us_label .contact_us_icon{
+    color: #fff;
+    background: #800080;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding-top: 2px;
+}
+
+.contact_us_form .contact_us_label .contact_us_icon .lock_icon{
+    font-size: 18px;
+}
+
+.contact_us_form .contact_us_label .contact_us_text{
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+form{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"]
+{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+form input[type="radio"]{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+form input[type="checkbox"]{
+    margin-right: 5px;
+}
+
+form input[type="submit"]{
+    margin-top: 10px;
+    background: #0d6efd;
+    border: navajowhite;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 5px;
+}
+
+form div label{
+    margin-bottom: 100px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+.contact_form p{
+    text-align: center;
+    font-size: 15px;
+    color: gray;
+}
+
+/* .contact_us_form form input{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.contact_us_form form input[type="submit"]{
+    background: #0d6efd;
+    border: navajowhite;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+} */
+
+
+@media only screen and (max-width: 390px){
+    .contact_us_form{
+        display: grid;
+        grid-template-columns: auto;
+    }   
+}

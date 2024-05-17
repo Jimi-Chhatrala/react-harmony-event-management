@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#hero{
+    background-image: url('../../images/0.breadcrumb-bg.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* width: 100vw; */
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 5%;
+}
+
+#hero .contact_us{
+    text-align: center;
+}
+
+.contact_us .contact_1{
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.contact_us .contact_2{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contact_us .contact_2 span{
+    color: orange;
+}
+
+.contact_us .contact_3_1{
+    margin-right: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact_us .contact_3_2{
+    border-left: 2px solid;
+    padding-left: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location_label{
+    padding: 20px 0;
+    /* display: block; */
+    /* background: yellow; */
+}
+
+.location_label p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location_label p span{
+    margin: 0 10px;
+    color: gray;
+}
+
+.location_label .star{
+    color: orangered;
+}
+
+.gallery_container{
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+/* .gallery_container div img{ */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+/* } */
+
+.gallery_container .gallery_image{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gallery_container .gallery_image_1{
+    background-image: url('../../images/gallery/1.image.jpg');
+}
+
+.gallery_container .gallery_image_2{
+    background-image: url('../../images/gallery/2.image.jpg');
+}
+
+.gallery_container .gallery_image_3{
+    background-image: url('../../images/gallery/3.image.jpg');
+}
+
+.gallery_container .gallery_image_4{
+    background-image: url('../../images/gallery/4.image.jpg');
+}
+
+.gallery_container .gallery_image_5{
+    background-image: url('../../images/gallery/5.image.jpg');
+}
+
+.gallery_container .gallery_image_6{
+    background-image: url('../../images/gallery/6.image.jpg');
+}
+
+.gallery_container .gallery_image_7{
+    background-image: url('../../images/gallery/7.image.jpg');
+}
+
+.gallery_container .gallery_image_8{
+    background-image: url('../../images/gallery/8.image.jpg');
+}
+
+.gallery_container .gallery_image .gallery_text{
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin-top: 247px;
+    position: relative;
+}
+
+.gallery_container .gallery_image .gallery_text .gallery_text_icon{
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+}
+
+.gallery_container .gallery_image .gallery_text p{
+    padding: 8px;
+}
+
+.gallery_container .gallery_image .gallery_text .gallery_text_1{
+    font-size: 16px;
+    padding-bottom: 0;
+}
+
+.gallery_container .gallery_image .gallery_text .gallery_text_2{
+    padding-top: 0;
+    font-size: 12px;
+}
+
+.gallery_container .gallery_image img{
+    height: 500px;
+}
+
+.offer_banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    background-image: url('../../images/special-offer-bg.png');
+}
+
+.offer_banner .offer_text{
+    color: darkgray;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.offer_banner .offer_button{
+    margin-left: 100px;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px;
+    color: #ffa500;
+}
+
+@media only screen and (max-width: 600px){
+    .gallery_container{
+        margin: 0 50px;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .offer_banner{
+        flex-direction: column;
+    }
+    .offer_banner .offer_button{
+        margin-left: 0;
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (max-width:390px){
+    #hero{
+        height: 20vh;
+    }
+
+    .gallery_container{
+        margin: 0 25px;
+    }
+
+    .offer_banner{
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:430px){
+    #hero{
+        height: 20vh;
+    }
+
+    .gallery_container{
+        margin: 0 25px;
+    }
+
+    .offer_banner{
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:900px){
+    .offer_banner{
+        padding: 0 20px;
+        text-align: center;
+    }
+}
