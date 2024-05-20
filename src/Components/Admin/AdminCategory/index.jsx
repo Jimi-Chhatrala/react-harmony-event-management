@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function AdminCategory(){
     // Add New Category
@@ -26,7 +27,7 @@ export default function AdminCategory(){
         fd,
          {
             headers:{
-                Authorization: localStorage.getItem('accessToken'),
+                Authorization: Cookies.get('accessToken'), //localStorage.getItem('accessToken'),
                 'content-type': 'multipart/form-data',
             },
         }

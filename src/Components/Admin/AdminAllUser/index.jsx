@@ -1,8 +1,9 @@
-import { Cookies } from 'react-cookie';
+// import { Cookies } from 'react-cookie';
 import AdminNavbarHeader from '../AdminNavbarHeader';
 import styles from './style.module.css';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Cookies from 'js-cookie'
 
 
 export default function AdminAllUser(){
@@ -12,7 +13,8 @@ export default function AdminAllUser(){
     useEffect(() => {    
         axios.get('http://localhost:3046/api/v1/admin/getalluser', {
             headers:{
-                Authorization: localStorage.getItem('accessToken'),
+                Authorization: Cookies.get('accessToken'),
+                // Authorization: localStorage.getItem('accessToken'),
             },
         })
         .then((response) => {

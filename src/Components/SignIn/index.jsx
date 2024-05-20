@@ -1,7 +1,7 @@
 import styles from './style.module.css';
 import ChangeDetailPageImage from '../../images/ChangeDetailPageImage.png'
 import { CiLock } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
+// import { FaStar } from "react-icons/fa";
 import NavBar from '../NavBar';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';

@@ -3,7 +3,8 @@ import styles from './styles.module.css';
 import { FaLock } from "react-icons/fa";
 import { useState } from 'react';
 import axios from 'axios';
-import { Cookies } from 'react-cookie';
+// import { Cookies } from 'react-cookie';
+import Cookies from 'js-cookie'
 
 export default function AdminLogin(){
     const [email , setEmail] = useState()
@@ -15,11 +16,15 @@ export default function AdminLogin(){
         e.preventDefault();
         await axios.post(`http://localhost:3046/api/v1/admin/login` , data)
         .then((response)=>{
-            localStorage.setItem('accessToken', response.data.accessToken) 
+            // localStorage.setItem('accessToken', response.data.accessToken) 
+            // Cookies.set('name','john')
+            // const name = Cookies.get('name');
+            // console.log(name)
             console.log(response)
             console.log("accesstoken: "+ response.data.accessToken)
             console.log("success: "+ response.data.success)
             if(response.data.success){
+                Cookies.set('accessToken', response.data.accessToken)
                 alert(response.data.message)
                 navigate('/admin/all-user')
             }else{
