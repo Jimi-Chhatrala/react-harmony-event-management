@@ -109,6 +109,15 @@
     border-radius: 5px;
 }
 
+.contact_us_form form textarea{
+    width: 100%;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
 .contact_us_form form input[type="submit"]{
     background: #0d6efd;
     border: navajowhite;

@@ -4,8 +4,45 @@ import { CiLock } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import Footer from '../Footer';
 import NavBar from '../NavBar';
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function Contact(){
+    // Add New Event
+    //-----------------------------------------------------------------------
+    const [fullName , setFullName] = useState();
+    const [email , setEmail] = useState();
+    const [mobile_no , setMobileNo] = useState();
+    const [message , setMessage] = useState();
+
+    const fd = new FormData()
+
+    const addContact = async(e) => {
+        e.preventDefault();
+        
+        fd.append('fullName', fullName);
+        fd.append('email', email);
+        fd.append('mobile_no', mobile_no);
+        fd.append('message', message);
+
+        await axios.post('http://localhost:3046/api/v1/contact/sendmessage', fd)
+        .then((response) => {
+            console.log('Response: ', response)
+    
+            if(response.data.success) {
+                alert(response.data.message)
+            } else {
+                alert(response.data.message)
+            }
+        }).catch((error) => {
+            console.log(error);
+            alert(error.response.data.message);
+        })
+    }
+
+
+    //-----------------------------------------------------------------------
+
     return(
         <div>
             <NavBar/>
@@ -27,12 +64,13 @@ export default function Contact(){
                         <p className={styles.contact_us_icon}><CiLock className={styles.lock_icon} /></p>
                         <p className={styles.contact_us_text}>Contact Us</p>
                         <form>
-                            <input type='text' id='name' placeholder='name *'/><br/>
-                            <input type='email' id='email' placeholder='email *'/><br/>
-                            <input type='text' id='country' placeholder='country *'/><br/>
-                            <input type='number' id='phone_number' placeholder='phone number *'/><br/>
-                            <input type='password' id='password' placeholder='password *'/><br/>
-                            <input type='submit' value={"Send"}/>
+                            <input type='text' id='name' placeholder='name *' value={fullName} onChange={(e)=>setFullName(e.target.value)}/><br/>
+                            <input type='email' id='email' placeholder='email *' value={email} onChange={(e)=>setEmail(e.target.value)}/><br/>
+                            {/* <input type='text' id='country' placeholder='country *'/><br/> */}
+                            <input type='number' id='phone_number' placeholder='phone number *' value={mobile_no} onChange={(e)=>setMobileNo(e.target.value)}/><br/>
+                            {/* <input type='password' id='password' placeholder='password *'/><br/> */}
+                            <textarea rows={5} placeholder='Messsage'  value={message} onChange={(e)=>setMessage(e.target.value)}></textarea>
+                            <input type='submit' value={"Send"} onClick={addContact} />
                         </form>
                     </div>
                 </div>
