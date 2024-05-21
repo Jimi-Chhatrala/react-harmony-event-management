@@ -6,6 +6,7 @@ import NavBar from '../NavBar';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function SignIn(){
     const [mobile_no , setPhno] = useState()
@@ -19,6 +20,7 @@ export default function SignIn(){
         .then((response)=>{
             console.log(response)
             if(response.data.success){
+                Cookies.set('userAccessToken', response.data.accessToken)
                 alert(response.data.message)
                 navigate('/')
             }else{

@@ -25,6 +25,7 @@ import AdminCategory from './Components/Admin/AdminCategory';
 import AdminProfile from './Components/Admin/AdminProfile';
 import SignIn from './Components/SignIn';
 import SignUp from './Components/SignUp';
+import Account from './Components/Account';
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
           <Route path='/my-bookings' element={<MyBookings/>} />
           <Route path='/sign-in' element={<SignIn/>} />
           <Route path='/sign-up' element={<SignUp/>} />
+          <Route path='/account' element={<Account/>} />
         </Routes>
       </BrowserRouter>
       <BrowserRouter>
