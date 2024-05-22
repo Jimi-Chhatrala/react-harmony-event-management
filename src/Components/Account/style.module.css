@@ -140,6 +140,10 @@
     margin-bottom: 5px;
 }
 
+.user_details span a{
+    color: #fff;
+}
+
 .user_details_1{
     display: flex;
     align-items: center;
@@ -149,4 +153,16 @@
 .user_details_1 p{
     font-weight: normal;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 1024px){
+    .account_sub_container{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .account_sub_container{
+        width: 100%;
+    }
 }

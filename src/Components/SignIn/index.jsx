@@ -12,7 +12,7 @@ export default function SignIn(){
     const [mobile_no , setPhno] = useState()
     const [password , setPassword] = useState()
 
-    const data = {mobile_no , password}
+    const data = {mobile_no , password} // 9328608883 , 12345
 
     const signIn = async(e) =>{
         e.preventDefault();

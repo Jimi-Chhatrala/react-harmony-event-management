@@ -11,6 +11,7 @@ import { MdContactPhone } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 export default function Account(){
     const [currentUser, setCurrentUser] = useState(); 
@@ -50,7 +51,7 @@ export default function Account(){
                     <p>Change Account Details</p>
                     <div className={styles.profile_image_container}>
                         <div className={styles.profile_container}>
-                            <img src={currentUser ? currentUser.avatar : null} alt="Profile Image" className={styles.profile_image} />
+                            <img src={currentUser ? currentUser.avatar : "https://res.cloudinary.com/dtdlad1ud/image/upload/v1703939018/yl9frkeayfp9wftlfz8l.jpg"} alt="Profile Image" className={styles.profile_image} />
                             <div className={styles.camera_icon}>
                                 <span><FaCamera /></span>
                             </div>
@@ -60,25 +61,25 @@ export default function Account(){
                         <div className={styles.user_details_1}>
                             <span><FaUserFriends /></span><span>{currentUser ? currentUser.fullName : null}</span>
                         </div>
-                        <span><MdEdit /></span>
+                        <span><Link to="/change-detail"><MdEdit /></Link></span>
                     </div>
                     <div className={styles.user_details}>
                         <div className={styles.user_details_1}>
                             <span><FaEnvelope /></span><span>{currentUser ? currentUser.email : null}</span>
                         </div>
-                        <span><MdEdit /></span>
+                        <span><Link to="/change-detail"><MdEdit /></Link></span>
                     </div>
                     <div className={styles.user_details}>
                         <div className={styles.user_details_1}>
                             <span><GrDirections /></span><span>{currentUser ? currentUser.gender : null}</span>
                         </div>
-                        <span><MdEdit /></span>
+                        <span><Link to="/change-detail"><MdEdit /></Link></span>
                     </div>
                     <div className={styles.user_details}>
                         <div className={styles.user_details_1}>
                             <span><MdContactPhone /></span><span>{currentUser ? currentUser.mobile_no : null}</span>
                         </div>
-                        <span><MdEdit /></span>
+                        <span><Link to="/change-detail"><MdEdit /></Link></span>
                     </div>
                     {/* <div className={styles.profile_image_container}>
                         <div className={styles.user_profile_image}>
