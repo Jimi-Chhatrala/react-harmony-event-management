@@ -8,17 +8,17 @@
     background: #000;
 }
 
-#hero{
-    background-image: url('../../images/event-speaking-man.jpg');
+#hero img{
+    /* background-image: url('../../images/event-speaking-man.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
     /* width: 100vw; */
     height: 50vh;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     /* justify-content: center; */
-    align-items: center;
-    padding-top: 5%;
+    /* align-items: center; */
+    /* padding-top: 5%; */
 }
 
 .vertical_divider{

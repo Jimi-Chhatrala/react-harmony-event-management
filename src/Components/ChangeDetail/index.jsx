@@ -3,8 +3,29 @@ import ChangeDetailPageImage from '../../images/ChangeDetailPageImage.png'
 import { CiLock } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import NavBar from '../NavBar';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Cookies from 'js-cookie'
 
 export default function ChangeDetail(){
+    const [currentUser, setCurrentUser] = useState(); 
+    // -----------------------------------------------------
+    // Get Current User
+
+    useEffect(() => {    
+        axios.get('http://localhost:3046/api/v1/users/getcurrentUser', {
+            headers:{
+                Authorization: Cookies.get('userAccessToken'),
+            },
+        })
+        .then((response) => {
+            setCurrentUser(response.data.data)
+            console.log('Current User Data',response.data.data)
+        }).catch((error)=>console.log(error))
+    }, []);
+
+    // -----------------------------------------------------
+
     return(
         <div>
             <NavBar/>
@@ -20,12 +41,12 @@ export default function ChangeDetail(){
                     <form>
                         <div>
                             <label for="name">Name</label>
-                            <input type='text' id='name' placeholder='name *'/>
+                            <input type='text' id='name' placeholder='name *' value={currentUser.fullName} />
                         </div>
 
                         <div>
                             <label for="email">Email</label>
-                            <input type='email' id='email' placeholder='email *'/>
+                            <input type='email' id='email' placeholder='email *' value={currentUser.email}/>
                         </div>
 
                         <div>
@@ -40,7 +61,7 @@ export default function ChangeDetail(){
 
                         <div>
                             <label for="phone_number">Phone Number</label><br/>
-                            <input type='number' id='phone_number' placeholder='phone number *'/><br/>
+                            <input type='number' id='phone_number' placeholder='phone number *' value={currentUser.mobile_no} /><br/>
                         </div>
 
                         <input type="checkbox" id="remember_me"/>

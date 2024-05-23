@@ -34,7 +34,7 @@ export default function Events(){
                 {
                     data ? data.map((element, index)=>{
                         return(
-                            <div className={styles.event} onClick={()=>navigate('/events/event/event-detail')}> 
+                            <div className={styles.event} onClick={()=>navigate('/events/event/event-detail', {state: element})}> 
                                 <div className={`${styles.event_image}`}>
                                     <img src={element.image} alt='Image'/>
                                 </div>
@@ -43,7 +43,7 @@ export default function Events(){
                                 </div>
                                 <div className={styles.event_text_2}>
                                     <h3>{element.title}</h3>
-                                    <p>{element.location}</p>
+                                    {/* <p>{element.location}</p> */}
                                     <p className={styles.gallery_text_2}>{element.location}</p>
                                     <p><BiRupee className={styles.gallery_text_icon}/><span>{element.price} onwards</span></p>
                                 </div>
