@@ -25,14 +25,18 @@
 }
 
 .event_container .event_image{
-    height: 350px;
+    /* height: 350px; */
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 5px 5px 0 0;
+    /* border-radius: 5px 5px 0 0; */
 }
 
-.event_container .event_image_1{
-    background-image: url('../../images/2.hall.png');
+/* .event_container .event_image_1{ */
+    /* background-image: url('../../images/2.hall.png'); */
+/* } */
+
+.event_image img{
+    height: 400px;
 }
 
 .event_text_1, .event_text_2{
@@ -66,7 +70,7 @@
 
 @media only screen and (max-width:900px){
     .event_container{
-        grid-template-columns: auto;
+        grid-template-columns: repeat(2,1fr);
     }
 }
 
@@ -76,12 +80,12 @@
     }
 
     .event_container{
-        grid-template-columns: auto;
+        grid-template-columns: repeat(1,1fr);
     }
 }
 
 @media only screen and (max-width:540px){
     .event_container{
-        grid-template-columns: auto;
+        grid-template-columns: repeat(1,1fr);
     }
 }

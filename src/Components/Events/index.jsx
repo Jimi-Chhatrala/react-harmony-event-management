@@ -35,7 +35,7 @@ export default function Events(){
                     {
                         allCategory ? allCategory.map((element, index)=>{
                             return(
-                                <div className={`${styles.events_image}`}>
+                                <div className={`${styles.events_image}`} onClick={()=>navigate("/events/event", {state: element})}>
                                     <img src={element.URL} alt='Category Image' />
                                     <div className={styles.events_text}>
                                         <p className={styles.events_text_1} onClick={()=>navigate('/events/event')}>{element.category_name}</p>
