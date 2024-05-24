@@ -70,7 +70,7 @@ export default function SignUp(){
                             <label htmlFor="female">Female</label>
                             <input type="radio" id="male" name="gender" value={"male"}  onChange={(e)=>setGender(e.target.value)} />
                             <label htmlFor="male">Male</label>
-                            <input type="radio" id="other" name="gender" value={"Other"}  onChange={(e)=>setGender(e.target.value)} />
+                            <input type="radio" id="other" name="gender" value={"other"}  onChange={(e)=>setGender(e.target.value)} />
                             <label htmlFor="other">Other</label><br/>
                         </div>
 
