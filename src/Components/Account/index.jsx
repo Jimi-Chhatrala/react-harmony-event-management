@@ -11,9 +11,10 @@ import { MdContactPhone } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Account(){
+    const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState(); 
     // -----------------------------------------------------
     // Get Current User
@@ -45,7 +46,7 @@ export default function Account(){
                     <div className={styles.account_2_1}>
                         <span><IoMdHome /></span><h2>Home</h2>
                     </div>
-                    <button>Change Password</button>
+                    <button onClick={()=> navigate('/changepass')}>Change Password</button>
                 </div>
                 <div className={styles.account_details_container}>
                     <p>Change Account Details</p>

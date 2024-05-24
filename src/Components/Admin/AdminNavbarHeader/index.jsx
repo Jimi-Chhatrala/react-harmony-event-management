@@ -5,11 +5,16 @@ import { CiBookmarkPlus } from "react-icons/ci";
 import { FaShapes } from "react-icons/fa6";
 import { LuLogOut } from "react-icons/lu";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Cookies from 'js-cookie';
+import axios from 'axios';
+
+const adminToken = Cookies.get('adminAccessToken');
 
 export default function AdminNavbarHeader(){
+    const [currentAdmin, setCurrentAdmin] = useState();
+
     const navigate = useNavigate();
     const adminLogout = (e) => {
         e.preventDefault();
@@ -17,6 +22,29 @@ export default function AdminNavbarHeader(){
         Cookies.remove('adminAccessToken')
         navigate('/admin/login')
       }
+
+    // -------------------------------------------------------
+    //   Get Current Admin
+
+    const getCurrentAdmin = async () => {
+        await axios.get('http://localhost:3046/api/v1/admin/getcurrentAdmin', {
+            headers:{
+                Authorization: adminToken,
+            },
+        })
+        .then((response) => {
+            setCurrentAdmin(response.data.data)
+            console.log('Current Admin Data',response.data.data)
+        }).catch((error)=>console.log(error))
+    }
+
+    useEffect(() => {    
+     getCurrentAdmin();   
+    }, []);
+
+    //   Get Current Admin
+    // -------------------------------------------------------
+
 
   const navRef = useRef();
   const showNavbar = () => {
@@ -66,10 +94,10 @@ export default function AdminNavbarHeader(){
                     </div>
                     <div>
                         <div className={styles.admin_details_container}>
-                            <img src="" alt="" className={styles.admin_image} />
+                            <img src="https://res.cloudinary.com/dtdlad1ud/image/upload/v1703939018/yl9frkeayfp9wftlfz8l.jpg" alt="" className={styles.admin_image} />
                             <div>
-                                <p className={styles.admin_text}>Event Management</p>
-                                <p className={styles.admin_text}>Admin</p>
+                                <p className={styles.admin_text}>{currentAdmin?.fullName}</p>
+                                <p className={styles.admin_text}>{currentAdmin?.email}</p>
                             </div>
                         </div>
                     </div>

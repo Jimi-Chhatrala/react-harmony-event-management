@@ -26,6 +26,7 @@ import AdminProfile from './Components/Admin/AdminProfile';
 import SignIn from './Components/SignIn';
 import SignUp from './Components/SignUp';
 import Account from './Components/Account';
+import UserChangePassword from './Components/UserChangePassword';
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
           <Route path='/sign-in' element={<SignIn/>} />
           <Route path='/sign-up' element={<SignUp/>} />
           <Route path='/account' element={<Account/>} />
+          <Route path='/changepass' element={<UserChangePassword />} />
         </Routes>
       </BrowserRouter>
       <BrowserRouter>
