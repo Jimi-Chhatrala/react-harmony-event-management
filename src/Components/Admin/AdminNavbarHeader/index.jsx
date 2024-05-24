@@ -4,11 +4,20 @@ import { IoMdCalendar } from "react-icons/io";
 import { CiBookmarkPlus } from "react-icons/ci";
 import { FaShapes } from "react-icons/fa6";
 import { LuLogOut } from "react-icons/lu";
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Cookies from 'js-cookie';
 
 export default function AdminNavbarHeader(){
+    const navigate = useNavigate();
+    const adminLogout = (e) => {
+        e.preventDefault();
+    
+        Cookies.remove('adminAccessToken')
+        navigate('/admin/login')
+      }
+
   const navRef = useRef();
   const showNavbar = () => {
     navRef.current.classList.toggle(styles.responsive_nav);
@@ -44,7 +53,7 @@ export default function AdminNavbarHeader(){
                     <p>Authentication</p>
                     <ul>
                         <li className={styles.nav_btn}>
-                            <Link className={styles.a} to="/admin/login"><LuLogOut className={styles.nav_btn_icon} /><span className={styles.nav_btn_text}>Log Out</span></Link>
+                            <Link className={styles.a} onClick={adminLogout}><LuLogOut className={styles.nav_btn_icon} /><span className={styles.nav_btn_text}>Log Out</span></Link>
                         </li>
                     </ul>
                 </div>

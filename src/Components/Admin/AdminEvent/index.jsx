@@ -45,7 +45,7 @@ export default function AdminEvent(){
         fd,
          {
             headers:{
-                Authorization: Cookies.get('accessToken'),
+                Authorization: Cookies.get('adminAccessToken'),
                 'content-type': 'multipart/form-data',
             },
         }

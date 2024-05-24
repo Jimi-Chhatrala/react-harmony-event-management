@@ -13,7 +13,7 @@ export default function AdminAllUser(){
     useEffect(() => {    
         axios.get('http://localhost:3046/api/v1/admin/getalluser', {
             headers:{
-                Authorization: Cookies.get('accessToken'),
+                Authorization: Cookies.get('adminAccessToken'),
                 // Authorization: localStorage.getItem('accessToken'),
             },
         })

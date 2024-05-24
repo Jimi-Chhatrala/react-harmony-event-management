@@ -27,7 +27,7 @@ export default function AdminCategory(){
         fd,
          {
             headers:{
-                Authorization: Cookies.get('accessToken'), //localStorage.getItem('accessToken'),
+                Authorization: Cookies.get('adminAccessToken'), //localStorage.getItem('accessToken'),
                 'content-type': 'multipart/form-data',
             },
         }

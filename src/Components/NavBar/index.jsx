@@ -30,6 +30,13 @@ export default function NavBar() {
 
   // -----------------------------------------------------
 
+  const userLogout = (e) => {
+    e.preventDefault();
+
+    Cookies.remove('userAccessToken')
+    navigate('/')
+  }
+  
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -75,7 +82,7 @@ export default function NavBar() {
                         <div class="dropdown-content">
                           <Link to="/account">Account</Link>
                           <a href="#">My Booking</a>
-                          <a href="#">Log Out</a>
+                          <Link onClick={userLogout}>Log Out</Link>
                         </div>
                       </div>
                     </div>

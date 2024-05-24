@@ -24,7 +24,7 @@ export default function AdminLogin(){
             console.log("accesstoken: "+ response.data.accessToken)
             console.log("success: "+ response.data.success)
             if(response.data.success){
-                Cookies.set('accessToken', response.data.accessToken)
+                Cookies.set('adminAccessToken', response.data.accessToken)
                 alert(response.data.message)
                 navigate('/admin/all-user')
             }else{
