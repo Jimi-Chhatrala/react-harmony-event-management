@@ -30,12 +30,29 @@ export default function NavBar() {
 
   // -----------------------------------------------------
 
-  const userLogout = (e) => {
+  const userLogout = async (e) => {
     e.preventDefault();
+    const data = { mobile_no: currentUser.mobile_no, password: currentUser.password };
 
-    Cookies.remove('userAccessToken')
-    navigate('/')
-  }
+    await axios.post('http://localhost:3046/api/v1/users/logout', data, {
+        headers:{
+            Authorization:  Cookies.get('userAccessToken'),
+        },
+    }).then((response)=>{
+        if(response.data.success){
+            alert(response.data.message)
+            // navigate('/account')
+            Cookies.remove('userAccessToken')
+            navigate('/')
+        }else{
+            alert(response.data.message)
+        }
+    }).catch((error)=>{
+        alert(error.response.data.message);
+    })
+}
+
+  // -----------------------------------------------------
   
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");

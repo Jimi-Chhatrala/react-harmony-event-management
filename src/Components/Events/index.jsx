@@ -19,6 +19,7 @@ export default function Events(){
         axios.get('http://localhost:3046/api/v1/admin/showcategory')
         .then((response) => {
             setAllCategory(response.data.message)
+            // console.log('response: ',response)
         }).catch((error)=>console.log(error))
     }, []);
 
