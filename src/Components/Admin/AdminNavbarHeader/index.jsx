@@ -10,6 +10,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { RiAdminFill } from "react-icons/ri";
+import { MdMessage } from "react-icons/md";
 
 const adminToken = Cookies.get("adminAccessToken");
 
@@ -89,6 +90,12 @@ export default function AdminNavbarHeader() {
                 <Link className={styles.a} to="/admin/category">
                   <FaShapes className={styles.nav_btn_icon} />
                   <span className={styles.nav_btn_text}>Post Category</span>
+                </Link>
+              </li>
+              <li className={styles.nav_btn}>
+                <Link className={styles.a} to="/admin/allcontactmessages">
+                  <MdMessage className={styles.nav_btn_icon} />
+                  <span className={styles.nav_btn_text}>Messages</span>
                 </Link>
               </li>
             </ul>

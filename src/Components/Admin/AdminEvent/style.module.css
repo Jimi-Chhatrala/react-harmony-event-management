@@ -1,86 +1,85 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.admin_event_container{
-    margin-left: 135px;
-    margin-top: -9.5rem;
-    border: 1px solid gray;
-    padding-top: 20px;
+.admin_event_container {
+  margin-left: 135px;
+  margin-top: -13.5rem;
+  border: 1px solid gray;
+  padding-top: 20px;
 }
 
 .form_container {
-    width: 30rem;
-    margin: 10px auto;
+  width: 30rem;
+  margin: 10px auto;
 }
 
-.form_container form{
-    display: flex;
-    flex-direction: column;
+.form_container form {
+  display: flex;
+  flex-direction: column;
 }
 
-.admin_event_text{
-    text-align: center;
+.admin_event_text {
+  text-align: center;
 }
 
-.file_input{
-    background: blue;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+.file_input {
+  background: blue;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
-.admin_event_text .logo{
-    background: purple;   
-    color: #fff;
-    border-radius: 50%;
-    padding: 5px;
-    font-size: 25px;
+.admin_event_text .logo {
+  background: purple;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 25px;
 }
 
 .form_container form input[type="date"],
-    .form_container form input[type="time"],
-        .form_container form select{
-    height: 40px;
+.form_container form input[type="time"],
+.form_container form select {
+  height: 40px;
 }
 
-.form_container form textarea{
-    height: 80px;
-    padding: 5px;
+.form_container form textarea {
+  height: 80px;
+  padding: 5px;
 }
 
-.form_container form > *{
-    margin-bottom: 10px;
+.form_container form > * {
+  margin-bottom: 10px;
 }
-
 
 @media only screen and (max-width: 1024px) {
-    .admin_event_container{
-      margin-left: 0;
-      margin-top: 0;
-      border: none;
-    }  
+  .admin_event_container {
+    margin-left: 0;
+    margin-top: 0;
+    border: none;
   }
+}
 
 @media only screen and (max-width: 390px) {
-    .form_container{
-        width: 24rem;
-    }
+  .form_container {
+    width: 24rem;
+  }
 }
 
 @media only screen and (max-width: 430px) {
-    .form_container{
-        width: 24rem;
-    }
+  .form_container {
+    width: 24rem;
+  }
 }
 
 @media only screen and (max-width: 375px) {
-    .form_container{
-        width: 23rem;
-    }
+  .form_container {
+    width: 23rem;
+  }
 }
