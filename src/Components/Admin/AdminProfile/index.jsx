@@ -85,17 +85,63 @@ function PersonalDetailPage() {
 }
 
 function ChangePasswordPage() {
+  const [password, setPassword] = useState();
+  const [newPassword, setNewPassword] = useState();
+  const [confirmNewPassword, setConfirmNewPassword] = useState();
+
+  const data = { password, newPassword };
+
+  const changeAdminPassword = async (e) => {
+    e.preventDefault();
+
+    if (newPassword !== confirmNewPassword) {
+      alert(`Passwords don't match..!`);
+    } else {
+      await axios
+        .post(`http://localhost:3046/api/v1/admin/passwordChange`, data, {
+          headers: {
+            Authorization: Cookies.get("adminAccessToken"),
+          },
+        })
+        .then((response) => {
+          if (response.data.success) {
+            alert(response.data.message);
+            setPassword("");
+            setNewPassword("");
+            setConfirmNewPassword("");
+          } else {
+            alert(response.data.message);
+          }
+        })
+        .catch((error) => {
+          alert(error.response.data.message);
+        });
+    }
+  };
+
   return (
     <div className={styles.admin_profile_details_container}>
       <h3>Change Password</h3>
       <form action="#">
         <div>
           <label htmlFor="old-password">Old Password:</label>
-          <input type="password" id="old-password" name="old-password" />
+          <input
+            type="password"
+            id="old-password"
+            name="old-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="new-password">New Password:</label>
-          <input type="password" id="new-password" name="new-password" />
+          <input
+            type="password"
+            id="new-password"
+            name="new-password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="confirm-new-password">Confirm New Password:</label>
@@ -103,9 +149,11 @@ function ChangePasswordPage() {
             type="password"
             id="confirm-new-password"
             name="confirm-new-password"
+            value={confirmNewPassword}
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
         </div>
-        <input type="button" value="Update" />
+        <input type="button" value="Update" onClick={changeAdminPassword} />
       </form>
     </div>
   );
