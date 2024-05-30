@@ -3,27 +3,29 @@ import ChangeDetailPageImage from "../../images/ChangeDetailPageImage.png";
 import { CiLock } from "react-icons/ci";
 // import { FaStar } from "react-icons/fa";
 import NavBar from "../NavBar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export default function SignIn() {
-  const [mobile_no, setPhno] = useState();
+export default function ForgotPassword() {
+  const [mobile_no, setMobile_no] = useState();
+  const [otp, setOTP] = useState();
   const [password, setPassword] = useState();
-
+  const [c_password, setC_Password] = useState();
+  const [id, setId] = useState();
+  const [show, setShow] = useState(false);
   const data = { mobile_no, password }; // 9328608883 , 12345
 
-  const signIn = async (e) => {
-    e.preventDefault();
+  const sendOTP = async () => {
+    const data = { mobile_no };
     await axios
-      .post(`http://localhost:3046/api/v1/users/login`, data)
+      .post(`http://localhost:3046/api/v1/users/sendotp`, data)
       .then((response) => {
         console.log(response);
         if (response.data.success) {
-          Cookies.set("userAccessToken", response.data.accessToken);
+          setShow(true);
           alert(response.data.message);
-          navigate("/");
         } else {
           alert(response.data.message);
         }
@@ -32,6 +34,28 @@ export default function SignIn() {
         console.log(error);
       });
   };
+
+  const verifyOTP = async () => {
+    const data = { mobile_no, otp };
+
+    await axios
+      .post(`http://localhost:3046/api/v1/users/sendotp`, data)
+      .then((res) => {
+        if (res.data.success) {
+          alert(res.data.message);
+          setMobile_no("");
+          setOTP("");
+          setPassword("");
+          setC_Password("");
+          setId(res.data.id);
+        } else {
+          alert(res.data.message);
+        }
+      })
+      .catch((err) => alert(err));
+  };
+
+  // const pass
 
   const navigate = useNavigate();
 
@@ -47,20 +71,20 @@ export default function SignIn() {
             <p className={styles.sign_in_icon}>
               <CiLock className={styles.lock_icon} />
             </p>
-            <p className={styles.sign_in_text}>Sign In</p>
+            <p className={styles.sign_in_text}>Forgot Password</p>
           </div>
           <form>
             <div>
               <input
                 type="number"
                 id="mobile_no"
-                placeholder="Mobile Number *"
+                placeholder="Enter Mobile Number To Send OTP *"
                 value={mobile_no}
-                onChange={(e) => setPhno(e.target.value)}
+                onChange={(e) => setMobile_no(e.target.value)}
               />
             </div>
 
-            <div>
+            {/* <div>
               <input
                 type="password"
                 id="password"
@@ -68,23 +92,19 @@ export default function SignIn() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </div>
-
-            <input type="checkbox" id="remember_me" />
-            <label htmlFor="remember_me">Remember me</label>
-            <br />
+            </div> */}
 
             <div>
-              <input type="submit" onClick={signIn} value={"SIGN IN"} />
+              <input type="submit" onClick={sendOTP} value={"SEND OTP"} />
             </div>
           </form>
-          <p className={styles.other_links}>
-            <Link to="/forgot_password">Forgot password ?</Link>
+          {/* <p className={styles.other_links}>
+            <a href="#">Forgot password ?</a>
             <a onClick={() => navigate("/sign-up")}>
               Don't have an account ? Sign Up
             </a>
-          </p>
-          <p>Copyright @ Your Website 2023</p>
+          </p> */}
+          {/* <p>Copyright @ Your Website 2023</p> */}
         </div>
       </section>
     </div>
