@@ -29,6 +29,7 @@ import Account from "./Components/Account";
 import UserChangePassword from "./Components/UserChangePassword";
 import ForgotPassword from "./Components/ForgotPassword";
 import AdminAllContactMessages from "./Components/Admin/AdminAllContactMessages";
+import AdminShowAllEvents from "./Components/Admin/AdminShowAllEvents";
 
 export default function App() {
   return (
@@ -61,6 +62,10 @@ export default function App() {
           <Route path="/admin/add-event" element={<AdminEvent />} />
           <Route path="/admin/category" element={<AdminCategory />} />
           <Route path="/admin/profile" element={<AdminProfile />} />
+          <Route
+            path="/admin/show-all-events"
+            element={<AdminShowAllEvents />}
+          />
           <Route
             path="/admin/allcontactmessages"
             element={<AdminAllContactMessages />}

@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { RiAdminFill } from "react-icons/ri";
 import { MdMessage } from "react-icons/md";
+import { MdEventRepeat } from "react-icons/md";
 
 const adminToken = Cookies.get("adminAccessToken");
 
@@ -78,6 +79,12 @@ export default function AdminNavbarHeader() {
                 <Link className={styles.a} to="/admin/add-event">
                   <IoMdCalendar className={styles.nav_btn_icon} />
                   <span className={styles.nav_btn_text}>Event Post</span>
+                </Link>
+              </li>
+              <li className={styles.nav_btn}>
+                <Link className={styles.a} to="/admin/show-all-events">
+                  <MdEventRepeat className={styles.nav_btn_icon} />
+                  <span className={styles.nav_btn_text}>Show All Events</span>
                 </Link>
               </li>
               <li className={styles.nav_btn}>
