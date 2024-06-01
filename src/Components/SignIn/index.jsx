@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
   const [mobile_no, setPhno] = useState();
@@ -22,10 +23,10 @@ export default function SignIn() {
         console.log(response);
         if (response.data.success) {
           Cookies.set("userAccessToken", response.data.accessToken);
-          alert(response.data.message);
+          toast.success(response.data.message);
           navigate("/");
         } else {
-          alert(response.data.message);
+          toast.error(response.data.message);
         }
       })
       .catch((error) => {

@@ -55,7 +55,27 @@ export default function ForgotPassword() {
       .catch((err) => alert(err));
   };
 
-  // const pass
+  const pass = async () => {
+    const data = { id, password };
+
+    if (password == c_password) {
+      await axios
+        .post(`http://localhost:3046/api/v1/users/forgotpassword`, data)
+        .then((response) => {
+          if (response.data.success) {
+            alert(response.data.message);
+            navigate("/sign-in");
+          } else {
+            alert(response.data.message);
+          }
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    } else {
+      alert(`Password don't match.`);
+    }
+  };
 
   const navigate = useNavigate();
 

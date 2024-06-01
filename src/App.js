@@ -30,10 +30,13 @@ import UserChangePassword from "./Components/UserChangePassword";
 import ForgotPassword from "./Components/ForgotPassword";
 import AdminAllContactMessages from "./Components/Admin/AdminAllContactMessages";
 import AdminShowAllEvents from "./Components/Admin/AdminShowAllEvents";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         {/* <NavBar/> */}
         <Routes>
@@ -44,7 +47,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/change-detail" element={<ChangeDetail />} />
           <Route path="/events/event" element={<Event />} />
-          <Route path="/events/event/event-detail" element={<EventDetail />} />
+          <Route
+            path="/events/event/event-detail/:id"
+            element={<EventDetail />}
+          />
           <Route path="/my-bookings" element={<MyBookings />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
