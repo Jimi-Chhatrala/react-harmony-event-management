@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mybooking_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px 25px;
+  /* background: rgb(3, 3, 59); */
+}
+
+.mybooking {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* display: flex; */
+  background: wheat;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.mybooking .part_1 {
+  text-align: center;
+}
+
+/* .mybooking img { */
+/* width: 250px; */
+/* } */
+
+.part_2 p,
+.part_3 p {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.part_2 p span,
+.part_3 p span {
+  color: blue;
+}
+
+.mybooking_price {
+  display: flex;
+  align-items: center;
+}
+
+.mybooking button {
+  background: skyblue;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.my_bookings {
+  background-image: url("../../images/iamge.jpg");
+  background-size: cover;
+  /* height: auto; */
+  /* width: auto; */
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.my_bookings img {
+  width: 100%;
+  height: auto;
+}
+
+.my_bookings_text p {
+  background: rgba(0, 0, 0, 0.3);
+  margin: 5px;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 50px;
+}
+
+.my_bookings_text .date {
+  text-align: center;
+}
+
+.my_bookings_text {
+  margin-bottom: 15px;
+}
+
+.my_bookings_text_2 {
+  padding-bottom: 10px;
+}
+
+.my_bookings_text_2 p {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.my_bookings_text_2 .icon {
+  margin-right: 5px;
+}

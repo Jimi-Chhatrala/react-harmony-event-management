@@ -72,13 +72,13 @@ export default function EventDetail() {
             { event_id },
             {
               headers: {
-                Authorization: Cookies.get("accessToken"),
+                Authorization: Cookies.get("userAccessToken"),
               },
             }
           )
           .then((res) => {
             toast.success(res.data.message);
-            navigate("/mybooking");
+            navigate("/my-bookings");
           })
           .catch((err) => console.log(err));
       },

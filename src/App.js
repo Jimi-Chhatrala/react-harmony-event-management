@@ -32,6 +32,7 @@ import AdminAllContactMessages from "./Components/Admin/AdminAllContactMessages"
 import AdminShowAllEvents from "./Components/Admin/AdminShowAllEvents";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MyBooking from "./Components/MyBooking";
 
 export default function App() {
   return (
@@ -51,7 +52,7 @@ export default function App() {
             path="/events/event/event-detail/:id"
             element={<EventDetail />}
           />
-          <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/my-bookings" element={<MyBooking />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/account" element={<Account />} />
