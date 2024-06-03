@@ -7,49 +7,82 @@ import { FaRegClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import NavBar from "../NavBar";
 import QRCodeImage from "../../images/qrcode.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function MyBooking() {
+  const [myBooking, setMyBooking] = useState();
+
+  useEffect(() => {
+    const fetch = async () => {
+      await axios
+        .get(`http://localhost:3046/api/v1/users/getbooking`, {
+          headers: {
+            Authorization: Cookies.get("userAccessToken"),
+          },
+        })
+        .then((response) => {
+          setMyBooking(response.data.data);
+        })
+        .catch((error) => {
+          toast.error(error);
+        });
+    };
+    fetch();
+  }, []);
+
+  console.log(myBooking);
+
   return (
     <div>
       <NavBar />
       <section className={styles.mybooking_container}>
-        <div className={styles.mybooking}>
-          <div className={styles.part_1}>
-            <img src={QRCodeImage} alt="" />
-            <button>Download</button>
-          </div>
-          <div className={styles.part_2}>
-            <p>
-              Ticket ID: <br />
-              <span>{"a987d9a54d6a87d9q5sd46a"}</span>
-            </p>
-            <p>
-              Location: <br />
-              <span>Himalaya Mall</span>
-            </p>
-            <p>
-              Price: <br />
-              <span className={styles.mybooking_price}>
-                <BiRupee />
-                200
-              </span>
-            </p>
-          </div>
-          <div className={styles.part_3}>
-            <p>
-              Date & Time: <br />
-              <span>2024-04-13, 03:45</span>
-            </p>
-            <p>
-              Booking Date: <br />
-              <span>4/13/2024</span>
-            </p>
-            <p>
-              Title: <br />
-              <span>12th fresher party</span>
-            </p>
-          </div>
-        </div>
+        {myBooking?.map((element, index) => {
+          const event = element.event_id;
+          return (
+            <div key={index} className={styles.mybooking}>
+              <div className={styles.part_1}>
+                <img src={QRCodeImage} alt="" />
+                <button>Download</button>
+              </div>
+              <div className={styles.part_2}>
+                <p>
+                  Ticket ID: <br />
+                  <span>{element._id}</span>
+                </p>
+                <p>
+                  Location: <br />
+                  <span>{event.location}</span>
+                </p>
+                <p>
+                  Price: <br />
+                  <span className={styles.mybooking_price}>
+                    <BiRupee />
+                    {event.price}
+                  </span>
+                </p>
+              </div>
+              <div className={styles.part_3}>
+                <p>
+                  Date & Time: <br />
+                  <span>
+                    {event.s_date} & {event.s_time}
+                  </span>
+                </p>
+                <p>
+                  Booking Date: <br />
+                  <span>{new Date(event.createdAt).toLocaleDateString()}</span>
+                </p>
+                <p>
+                  Title: <br />
+                  <span>{event.title}</span>
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </section>
       <Footer />
     </div>

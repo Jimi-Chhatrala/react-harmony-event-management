@@ -96,3 +96,26 @@
 .my_bookings_text_2 .icon {
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 1024px) {
+  .mybooking_container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mybooking {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .mybooking img {
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .mybooking_container {
+    padding: 5px;
+  }
+}
