@@ -7,6 +7,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 export default function NavBar() {
   const navRef = useRef();
@@ -47,16 +48,16 @@ export default function NavBar() {
       })
       .then((response) => {
         if (response.data.success) {
-          alert(response.data.message);
+          toast.success(response.data.message);
           // navigate('/account')
           Cookies.remove("userAccessToken");
           navigate("/");
         } else {
-          alert(response.data.message);
+          toast.error(response.data.message);
         }
       })
       .catch((error) => {
-        alert(error.response.data.message);
+        toast.error(error.response.data.message);
       });
   };
 

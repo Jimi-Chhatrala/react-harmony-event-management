@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function Account() {
   const inputRef = useRef(0);
   const [URL, setURL] = useState(null);
@@ -82,7 +83,7 @@ export default function Account() {
       })
       .then((res) => {
         setRef(res.data.success);
-        alert(res.data.message);
+        toast.success(res.data.message);
       })
       .catch((err) => console.log(err));
   };
