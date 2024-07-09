@@ -29,7 +29,22 @@ export const UserApi = createApi({
         },
       }),
     }),
+    updateUserAvatar: builder.mutation({
+      query: (data) => ({
+        url: "users/avatar",
+        method: "POST",
+        body: data,
+        headers: {
+          // "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useUserSignInMutation, useGetCurrentUserQuery } = UserApi;
+export const {
+  useUserSignInMutation,
+  useGetCurrentUserQuery,
+  useUpdateUserAvatarMutation,
+} = UserApi;

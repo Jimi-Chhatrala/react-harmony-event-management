@@ -13,6 +13,10 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import {
+  useGetCurrentUserQuery,
+  useUpdateUserAvatarMutation,
+} from "../userApi";
 export default function Account() {
   const inputRef = useRef(0);
   const [URL, setURL] = useState(null);
@@ -23,22 +27,30 @@ export default function Account() {
 
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState();
+  const { data: responseData } = useGetCurrentUserQuery();
+
   // -----------------------------------------------------
   // Get Current User
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3046/api/v1/users/getcurrentUser", {
-        headers: {
-          Authorization: Cookies.get("userAccessToken"),
-        },
-      })
-      .then((response) => {
-        setCurrentUser(response.data.data);
-        console.log(response.data.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    try {
+      setCurrentUser(responseData.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // axios
+    //   .get("http://localhost:3046/api/v1/users/getcurrentUser", {
+    //     headers: {
+    //       Authorization: Cookies.get("userAccessToken"),
+    //     },
+    //   })
+    //   .then((response) => {
+    //     setCurrentUser(response.data.data);
+    //     console.log(response.data.data);
+    //   })
+    //   .catch((error) => console.log(error));
+  }, [responseData]);
 
   // -----------------------------------------------------
 
@@ -75,17 +87,28 @@ export default function Account() {
   //     }
   //   };
 
+  const [responseImage] = useUpdateUserAvatarMutation();
+
   const upadateavatar = async () => {
     data.append("avatar", avatar);
-    await axios
-      .post("http://localhost:3046/api/v1/users/avatar", data, {
-        headers: { Authorization: Cookies.get("userAccessToken") },
-      })
-      .then((res) => {
-        setRef(res.data.success);
-        toast.success(res.data.message);
-      })
-      .catch((err) => console.log(err));
+
+    try {
+      const response = await responseImage(data);
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    // await axios
+    //   .post("http://localhost:3046/api/v1/users/avatar", data, {
+    //     headers: { Authorization: Cookies.get("userAccessToken") },
+    //   })
+    //   .then((res) => {
+    //     setRef(res.data.success);
+    //     toast.success(res.data.message);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   useEffect(() => {
