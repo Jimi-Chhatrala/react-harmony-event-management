@@ -33,52 +33,58 @@ import AdminShowAllEvents from "./Components/Admin/AdminShowAllEvents";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyBooking from "./Components/MyBooking";
-
+import { Provider } from "react-redux";
+import { store } from "./Components/store";
 export default function App() {
   return (
     <>
-      <ToastContainer />
-      <BrowserRouter>
-        {/* <NavBar/> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/change-detail" element={<ChangeDetail />} />
-          <Route path="/events/event" element={<Event />} />
-          <Route
-            path="/events/event/event-detail/:id"
-            element={<EventDetail />}
-          />
-          <Route path="/my-bookings" element={<MyBooking />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/changepass" element={<UserChangePassword />} />
-          <Route path="/forgot_password" element={<ForgotPassword />} />
-        </Routes>
-      </BrowserRouter>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/admin" element={<Navigate to="/admin/login" />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/navbar-header" element={<AdminNavbarHeader />} />
-          <Route path="/admin/all-user" element={<AdminAllUser />} />
-          <Route path="/admin/add-event" element={<AdminEvent />} />
-          <Route path="/admin/category" element={<AdminCategory />} />
-          <Route path="/admin/profile" element={<AdminProfile />} />
-          <Route
-            path="/admin/show-all-events"
-            element={<AdminShowAllEvents />}
-          />
-          <Route
-            path="/admin/allcontactmessages"
-            element={<AdminAllContactMessages />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <Provider store={store}>
+        <ToastContainer />
+        <BrowserRouter>
+          {/* <NavBar/> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/change-detail" element={<ChangeDetail />} />
+            <Route path="/events/event" element={<Event />} />
+            <Route
+              path="/events/event/event-detail/:id"
+              element={<EventDetail />}
+            />
+            <Route path="/my-bookings" element={<MyBooking />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/changepass" element={<UserChangePassword />} />
+            <Route path="/forgot_password" element={<ForgotPassword />} />
+          </Routes>
+        </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/admin" element={<Navigate to="/admin/login" />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/navbar-header"
+              element={<AdminNavbarHeader />}
+            />
+            <Route path="/admin/all-user" element={<AdminAllUser />} />
+            <Route path="/admin/add-event" element={<AdminEvent />} />
+            <Route path="/admin/category" element={<AdminCategory />} />
+            <Route path="/admin/profile" element={<AdminProfile />} />
+            <Route
+              path="/admin/show-all-events"
+              element={<AdminShowAllEvents />}
+            />
+            <Route
+              path="/admin/allcontactmessages"
+              element={<AdminAllContactMessages />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </>
   );
 }
