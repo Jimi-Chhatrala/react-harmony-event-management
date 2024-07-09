@@ -8,6 +8,7 @@ import { FaCaretDown } from "react-icons/fa";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
+import { useGetCurrentUserQuery } from "../userApi";
 
 export default function NavBar() {
   const navRef = useRef();
@@ -16,20 +17,26 @@ export default function NavBar() {
   const [currentUser, setCurrentUser] = useState();
   // -----------------------------------------------------
   // Get Current User
-
+  const { data: responseData } = useGetCurrentUserQuery();
   useEffect(() => {
-    axios
-      .get("http://localhost:3046/api/v1/users/getcurrentUser", {
-        headers: {
-          Authorization: Cookies.get("userAccessToken"),
-        },
-      })
-      .then((response) => {
-        setCurrentUser(response.data.data);
-        console.log(response.data.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    try {
+      setCurrentUser(responseData.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // axios
+    //   .get("http://localhost:3046/api/v1/users/getcurrentUser", {
+    //     headers: {
+    //       Authorization: Cookies.get("userAccessToken"),
+    //     },
+    //   })
+    //   .then((response) => {
+    //     setCurrentUser(response.data.data);
+    //     console.log(response.data.data);
+    //   })
+    //   .catch((error) => console.log(error));
+  }, [responseData]);
 
   // -----------------------------------------------------
 
@@ -108,12 +115,12 @@ export default function NavBar() {
                     className="profile-image"
                   />
                 </div>
-                <div class="dropdown">
-                  <button class="dropbtn">
+                <div className="dropdown">
+                  <button className="dropbtn">
                     {currentUser ? currentUser.fullName : null}
                     <FaCaretDown />
                   </button>
-                  <div class="dropdown-content">
+                  <div className="dropdown-content">
                     <Link to="/account">Account</Link>
                     <Link to="/my-bookings">My Booking</Link>
                     <Link onClick={userLogout}>Log Out</Link>
